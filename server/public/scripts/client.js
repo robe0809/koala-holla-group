@@ -29,7 +29,7 @@ function appendKoalas (koalasArr) {
     $rows.append('<td>' + koalasArr[i].gender + '</td>');
     $rows.append('<td>' + koalasArr[i].age + '</td>');
     $rows.append('<td>' + koalasArr[i].ready_to_transfer + '</td>');
-    $rows.append('<td>' + koalasArr[i].notes + '</td>');
+    $rows.append('<td class="notes">' + koalasArr[i].notes + '</td>');
     if(koalasArr[i].ready_to_transfer == 'N'){
       $rows.append('<td><button class="transfer">Transfer Koala</button></td>');
     } else {
