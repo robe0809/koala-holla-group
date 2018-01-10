@@ -5,43 +5,53 @@
     <title>Koala Holla</title>
     <script src="vendors/jquery.min.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
   </head>
   <body>
-    <img src="images/icon.png" />
-    <h1>Koala Holla</h1>
-    <h2>1976 Llama Comma Drive</h2>
-    <h2>Walla Walla, WA</h2>
-    <div id="addKoala">
-      <h2>Add Koala</h2>
-      
-      <label>Name: </label><input class='notChecked' type="text" id="nameIn" value="" placeholder="Name"><br>
-      <label>Age: </label><input class='notChecked' type="text" id="ageIn" value="" placeholder="Age"><br>
-      <label>Gender: </label><select class='notChecked' id="genderIn">
-        <option value="">Select</option>
-        <option value="M">Male</option>
-        <option value="F">Female</option>
-      </select><br>
-      <label>Ready for Transfer?: </label><input type="checkbox" id="readyForTransferIn" value="N"><br>
-      <label>Notes: </label><input class='notChecked' type="text" id="notesIn" value="" placeholder="Notes"><br>
-      <button class='notChecked' type="button" id="addButton">Add Koala</button>
-    </div>
-    <div>
-      <h2>All Koalas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Age</th>
-            <th>Ready for Transfer</th>
-            <th>Notes</th>
-            <th>Transfer Request</th>
-            <th>Terminate Koala</th>
-          </tr>
-        </thead>
-        <tbody id="viewKoalas">
-        </tbody>
-      </table>
+    <div class="main-container">
+      <div class="row">
+        <div class="col-sm-6"><img src="images/icon.png" /></div>
+        <div class="col-sm-6">
+          <h1>Koala Holla</h1>
+          <h2>1976 Llama Comma Drive</h2>
+          <h2>Walla Walla, WA</h2>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col-md-3" id="addKoala">
+        <h2>Add Koala</h2>
+        <form>
+          <input class='notChecked' type="text" id="nameIn" value="" placeholder="Name"><br>
+          <input class='notChecked' type="text" id="ageIn" value="" placeholder="Age"><br>
+          <select class='notChecked' id="genderIn">
+            <option value="">Select</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select><br>
+          <label>Ready for Transfer?</label> <input type="checkbox" id="readyForTransferIn" value="N"><br>
+          <input class='notChecked notes' type="text" id="notesIn" value="" placeholder="Notes"><br>
+          <button class='notChecked' type="button" id="addButton">Add Koala</button>
+        </form>
+      </div>
+      <div class="col-md-9">
+        <h2 class="table-title">All Koalas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Gender</th>
+              <th>Age</th>
+              <th>Ready for Transfer</th>
+              <th>Notes</th>
+              <th>Transfer Request</th>
+              <th>Terminate Koala</th>
+            </tr>
+          </thead>
+          <tbody id="viewKoalas">
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>

@@ -50,6 +50,7 @@ class Koala{
 }//end Koala Class
 
 function addKoala(){
+  event.preventDefault();
   let name = $('#nameIn').val();
   let age = $('#ageIn').val();
   let gender = $('#genderIn').val();
