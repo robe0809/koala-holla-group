@@ -7,6 +7,7 @@ function onReady() {
   getKoalas();
   $('#addButton').on('click', addKoala);
   $('#viewKoalas').on('click', '.terminateKoala', terminateKoala);
+  $('#viewKoalas').on('click', '.transfer', transferKoala);
 }
 
 function getKoalas(){
@@ -21,8 +22,9 @@ function getKoalas(){
 }
 
 function appendKoalas (koalasArr) {
+  $('#viewKoalas').empty();
   for(let i = 0; i < koalasArr.length; i++) {
-    let $rows = $('<tr>');
+    let $rows = $('<tr data-id="' + koalasArr[i].id + '">');
     $rows.append('<td>' + koalasArr[i].name + '</td>');
     $rows.append('<td>' + koalasArr[i].gender + '</td>');
     $rows.append('<td>' + koalasArr[i].age + '</td>');
@@ -33,8 +35,8 @@ function appendKoalas (koalasArr) {
     } else {
       $rows.append('<td></td>');
     }
-    $rows.append('<td><button data-id="' + koalasArr[i].id + '" class="terminateKoala">Terminate Koala</button><td>');
-    $('#viewKoalas').append($rows);
+    $rows.append('<td><button class="terminateKoala">Terminate Koala</button><td>');
+    $('#viewKoalas').prepend($rows);
   }
 }
 class Koala{
@@ -64,19 +66,33 @@ function addKoala(){
     url: '/koalas',
     data: koala,
     success: function(response){
-      $('#viewKoalas').empty();
       getKoalas();
+      $('.notChecked').val('');
+      $('#readyForTransferIn').prop('checked', false);
     }
   });
 }//end addKoala
 function terminateKoala() {
-  let id = $(this).data('id');
-  $(this).parent().parent().remove();
+  let id = $(this).parent().parent().data('id');
   $.ajax({
     method: "DELETE",
     url: '/koalas/'+ id,
     success: function (response) {
       console.log('successful response', response);
+      getKoalas();
     }
-  })
-}
+  });
+};
+function transferKoala () {
+  let id = $(this).parent().parent().data('id');
+  let transferStatus = 'Y';
+  $.ajax({
+    method: "PUT",
+    url: '/koalas/'+ id,
+    data: {ready_to_transfer: transferStatus},
+    success: function (response) {
+      console.log('successful response', response);
+      getKoalas();
+    }
+  });
+};

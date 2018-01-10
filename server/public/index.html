@@ -13,12 +13,17 @@
     <h2>Walla Walla, WA</h2>
     <div id="addKoala">
       <h2>Add Koala</h2>
-      <input type="text" id="nameIn" value="" placeholder="Name">
-      <input type="text" id="ageIn" value="" placeholder="Age">
-      <input type="text" id="genderIn" value="" placeholder="Gender">
-      <input type="checkbox" id="readyForTransferIn" value="N">
-      <input type="text" id="notesIn" value="" placeholder="Notes">
-      <button type="button" id="addButton">Add Koala</button>
+      
+      <label>Name: </label><input class='notChecked' type="text" id="nameIn" value="" placeholder="Name"><br>
+      <label>Age: </label><input class='notChecked' type="text" id="ageIn" value="" placeholder="Age"><br>
+      <label>Gender: </label><select class='notChecked' id="genderIn">
+        <option value="">Select</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+      </select><br>
+      <label>Ready for Transfer?: </label><input type="checkbox" id="readyForTransferIn" value="N"><br>
+      <label>Notes: </label><input class='notChecked' type="text" id="notesIn" value="" placeholder="Notes"><br>
+      <button class='notChecked' type="button" id="addButton">Add Koala</button>
     </div>
     <div>
       <h2>All Koalas</h2>
@@ -26,8 +31,8 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Age</th>
             <th>Gender</th>
+            <th>Age</th>
             <th>Ready for Transfer</th>
             <th>Notes</th>
             <th>Transfer Request</th>
