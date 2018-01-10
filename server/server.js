@@ -1,12 +1,17 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var port = process.env.PORT || 5000;
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
+app.use(bodyParser.urlencoded({extended: true}));
 
-// Start listening for requests on a specific port
-app.listen(port, function(){
-  console.log('listening on port', port);
+const koalasRouter = require('./routes/koalas.router');
+
+//routes
+app.use('/koalas', koalasRouter);
+
+const port = 5000;
+app.listen(port, () => {
+console.log('server is up on: ', port);
+
 });
