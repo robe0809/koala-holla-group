@@ -8,6 +8,19 @@ function onReady() {
   $('#addButton').on('click', addKoala);
   $('#viewKoalas').on('click', '.terminateKoala', terminateKoala);
   $('#viewKoalas').on('click', '.transfer', transferKoala);
+  $('.filter').on('change', function(){
+    if($(this).val() == 0) {
+      getKoalas();
+      console.log('Picked all Koalas');
+    } if($(this).val() == 1) {
+      showTransfer()
+      console.log('Picked Tranfdaffs Koalas');
+    }
+    if($(this).val() == 2) {
+      showNoTransfer();
+      console.log('Picked Tranfdaffs Koalas');
+    }
+  })
 }
 
 function getKoalas(){
@@ -70,6 +83,7 @@ function addKoala(){
       getKoalas();
       $('.notChecked').val('');
       $('#readyForTransferIn').prop('checked', false);
+      $('select').val(0);
     }
   });
 }//end addKoala
@@ -97,3 +111,12 @@ function transferKoala () {
     }
   });
 };
+function showTransfer () {
+  $.ajax({
+    method: "GET",
+    url: '/koalas/transferKoalas',
+    success: function(response) {
+      console.log('trasferKoalas is ', response);
+    }
+  })
+}

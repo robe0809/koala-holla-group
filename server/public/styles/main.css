@@ -1,38 +1,33 @@
-
-
+header {
+    display: inline-block;
+    height: 200px;
+    background-color:#1E90FF;
+}
+#info {
+    position: relative;
+    float: left;
+    top: 50px;
+}
+#addKoala {
+    text-align: center;
+}
 img {
-    height: 250px;
+    height: 200px;
     width: auto;
+    padding-right: 20px;
+    float: left;
+    background-color:#1E90FF;
 }
-
-table {
+.formSection {
+    padding: 20px;
+    width: 25%;
     margin: 0 auto;
-    width: 100%;
-    text-align: center;
-}
-
-.table-title {
-    text-align: center;
-}
-
-.main-container {
-    margin: 6%;
-}
-
-.row {
-    padding: 2%;
-}
-
-.notChecked, select {
-    width: 100%;
-    padding: 5px;
-    margin: 3px;
 }
 form {
-    box-shadow: 5px 8px 8px 5px #888888;
-    width: 75%;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
+    width: 80%;
+    margin: 0 auto;
     padding: 5px;
-    border-radius: 5px;
     text-align: center;
 }
 input {
@@ -47,9 +42,28 @@ input:focus {
 input::placeholder {
     text-align: center;
   }
+.notChecked, select {
+    width: 100%;
+    padding: 5px;
+    margin: 3px;
+}
 
-tr {
-    border: 1px solid #888888;
+.tableSection {
+    width: 80%;
+    margin: 0 auto;
+}
+table {
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+}
+
+.table-title {
+    text-align: center;
+}
+
+tr, thead {
+    border-bottom: 1px solid #888888;
 }
 
 tr:nth-child(even){
@@ -62,11 +76,11 @@ tr:nth-child(even){
     margin-left: 50px;
 }
 button{
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.2);
     margin-top: 10px;
     border-radius: 50%;
     text-align: center;
-    height: 50%;
-
-
+    height:25px;
+}
+#addButton {
+    height: 30px;
 }
