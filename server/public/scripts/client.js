@@ -8,19 +8,7 @@ function onReady() {
   $('#addButton').on('click', addKoala);
   $('#viewKoalas').on('click', '.terminateKoala', terminateKoala);
   $('#viewKoalas').on('click', '.transfer', transferKoala);
-  $('.filter').on('change', function(){
-    if($(this).val() == 0) {
-      getKoalas();
-      console.log('Picked all Koalas');
-    } if($(this).val() == 1) {
-      showTransfer()
-      console.log('Picked Tranfdaffs Koalas');
-    }
-    if($(this).val() == 2) {
-      showNoTransfer();
-      console.log('Picked Tranfdaffs Koalas');
-    }
-  })
+  $('.filter').on('change', transferToggle);
 }
 
 function getKoalas(){
@@ -111,12 +99,39 @@ function transferKoala () {
     }
   });
 };
+
+function transferToggle(){
+  if($(this).val() == 0) {
+    getKoalas();
+    console.log('Picked all Koalas');
+  } if($(this).val() == 1) {
+    showTransfer()
+    console.log('Picked Tranfdaffs Koalas');
+  }
+  if($(this).val() == 2) {
+    showNotTransfered ()
+    console.log('Picked Tranfdaffs Koalas');
+  }
+}
+
 function showTransfer () {
   $.ajax({
     method: "GET",
     url: '/koalas/transferKoalas',
     success: function(response) {
       console.log('trasferKoalas is ', response);
+      appendKoalas(response);
+    }
+  })
+}
+
+function showNotTransfered () {
+  $.ajax({
+    method: "GET",
+    url: '/koalas/notTransfered',
+    success: function(response) {
+      console.log('fdsa', response);
+      appendKoalas(response);
     }
   })
 }

@@ -70,4 +70,16 @@ router.get('/transferKoalas', (req, res) => {
             res.sendStatus(500);
         })
 });
+router.get('/notTransfered', (req, res) => {
+    const queryText = 'SELECT * FROM koala WHERE ready_to_transfer = $1';
+    pool.query(queryText, ['N'])
+        .then((result) => {
+            console.log('results: ', result.rows);
+            res.send(result.rows);
+        })
+        .catch((err) => {
+            console.log('error:', err);
+            res.sendStatus(500);
+        })
+});
 module.exports = router;
